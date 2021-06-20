@@ -47,12 +47,12 @@ public class CrawlDataService {
             JSONArray dataArr = JSON.parseArray(data);
             dataArr.get(0);
             for (int j = 0; j < dataArr.size(); j++) {
-                log.info("log => {}", dataArr.getString(j));
+//                log.info("log => {}", dataArr.getString(j));
                 FileUtil.appendUtf8String(dataArr.getString(j) + "\n", LOCAL_PATH);
             }
             log.info("进度： [" + i + " / " + "1337]...");
             log.info("第【{}】页数据保存到本地成功！", i);
-            Thread.sleep(2_000);
+            Thread.sleep(1_000);
         }
         log.info("crawl data end !");
     }
