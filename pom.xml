@@ -11,6 +11,7 @@
     <modules>
         <module>traffic-credit-card-data</module>
         <module>traffic-common</module>
+        <module>traffic-etl</module>
     </modules>
 
 
