@@ -15,13 +15,12 @@ object Json2HiveApplication {
     val properties: Properties = MyPropertiesUtil.load("application.properties")
     val path: String = properties.getProperty("origin.data.file.path")
     //设置spark运行环境
-    val sparkConf: SparkConf = new SparkConf().setAppName(this.getClass.getSimpleName.stripPrefix("$"))
+    val sparkConf: SparkConf = new SparkConf().setMaster("local[*]").setAppName(this.getClass.getSimpleName.stripPrefix("$"))
     val spark: SparkSession = SparkSession
         .builder()
         .config(sparkConf)
         .enableHiveSupport()
         .getOrCreate()
-    println(path)
     val dataFrame: DataFrame = spark.read.format("json").load(path)
     dataFrame.show(10,false)
 
@@ -95,13 +94,6 @@ object Json2HiveApplication {
 
     //查询保存到hive的数据
     spark.sql("select * from ods_szt_data").show(10, false)
-
-
-
-
-
-
-
 
 
   }
