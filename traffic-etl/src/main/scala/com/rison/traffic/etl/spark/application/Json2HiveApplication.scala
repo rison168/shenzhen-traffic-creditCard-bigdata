@@ -94,7 +94,7 @@ object Json2HiveApplication {
 
     //查询保存到hive的数据
     spark.sql("select * from ods_szt_data").show(10, false)
-
+    spark.close()
 
   }
 }

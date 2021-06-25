@@ -46,5 +46,7 @@ object HiveOnSpark {
       """
         |SELECT * FROM ads_card_deal_day_top LIMIT 20
         |""".stripMargin).show()
+
+    spark.close()
   }
 }
